@@ -34,8 +34,7 @@ public class StackUsingOneQueue {
 
         //re arrange all elements behind the new element inserted
         for (int i=0; i<size()-1; i++) {
-            int temp = queue.remove();
-            queue.add(temp);
+            queue.add(queue.remove());
         }
     }
 
