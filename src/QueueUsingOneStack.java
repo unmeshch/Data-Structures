@@ -1,16 +1,16 @@
 import java.util.NoSuchElementException;
 
 /**
+ * TODO
  * Implementation of queue using two stacks internally
  * @author Unmesh Chougule
  */
-public class QueueUsingStack {
+public class QueueUsingOneStack {
 
-    private final Stack stack1 = new Stack();
-    private final Stack stack2 = new Stack();
+    private final Stack stack = new Stack();
 
     public static void main(String[] args) {
-        QueueUsingStack queue = new QueueUsingStack();
+        QueueUsingOneStack queue = new QueueUsingOneStack();
         queue.add(5);
         queue.add(3);
         queue.add(12);
@@ -28,22 +28,7 @@ public class QueueUsingStack {
      * @param element to be added
      */
     public void add(int element) {
-        if (stack1.size() == 0) { //empty queue, add directly in first stack
-            stack1.push(element);
-            return;
-        }
-        //not empty queue, maintain queue order by adding element at last position
-        int stack1Size = stack1.size();
-        for (int i=0; i<stack1Size; i++) {
-            stack2.push(stack1.pop());
-        }
 
-        stack2.push(element);
-
-        int stack2Size = stack2.size();
-        for (int i=0; i<stack2Size; i++) {
-            stack1.push(stack2.pop());
-        }
     }
 
     /**
@@ -52,12 +37,12 @@ public class QueueUsingStack {
      * @throws NoSuchElementException if queue is empty
      */
     public int get() throws NoSuchElementException {
-        return stack1.pop();
+        return stack.pop();
     }
 
     @Override
     public String toString() {
-        return stack1.toString();
+        return stack.toString();
     }
 
     /**
@@ -65,6 +50,6 @@ public class QueueUsingStack {
      * @return size
      */
     public int size() {
-        return stack1.size();
+        return stack.size();
     }
 }
