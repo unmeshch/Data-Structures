@@ -8,7 +8,7 @@ import java.util.Queue;
  */
 public class StackUsingOneQueue {
 
-    private Queue<Integer> queue = new ArrayDeque<>();
+    private final Queue<Integer> queue = new ArrayDeque<>();
 
     public static void main(String[] args) {
         StackUsingOneQueue stackUsingOneQueue = new StackUsingOneQueue();
